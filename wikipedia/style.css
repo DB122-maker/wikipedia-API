@@ -67,7 +67,7 @@ body {
 }
 
 .resultItem,
-.wrongItem {
+.errorSearch {
   opacity: 0;
   margin-bottom: 20px;
   animation: show 0.5s forwards ease-in-out;
@@ -81,8 +81,7 @@ body {
   background-color: #434343;
 }
 
-.resultItem-title,
-.wrongItem-title {
+.resultItem-title {
   margin-bottom: 4px;
 }
 
@@ -99,6 +98,30 @@ body {
 .resultItem-link {
   color: #c2c2c2;
   font-size: 13px;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  margin: -75px 0 0 -75px;
+  border: 4.5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4.5px solid #434343;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes show {

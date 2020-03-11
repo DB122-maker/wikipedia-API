@@ -6,7 +6,6 @@ function handleSubmit(event) {
   event.preventDefault();
   const input = document.querySelector(".searchForm-input").value;
   const searchQuery = input.trim();
-  // suppression de l'espace
   fetchResults(searchQuery);
 }
 function fetchResults(searchQuery) {
@@ -24,7 +23,7 @@ function displayResults(results) {
   const searchResults = document.querySelector(".searchResults");
 
   searchResults.innerHTML = "";
-  if (results !== "") {
+  if (results.length) {
     results.forEach(result => {
       const url = encodeURI(`https://fr.wikipedia.org/wiki/${result.title}`);
       searchResults.insertAdjacentHTML(
@@ -38,5 +37,7 @@ function displayResults(results) {
     </div>`
       );
     });
+  } else {
+    return (searchResults.innerHTML = ` <p class="errorSearch"> Vous vous êtes surement trompés, ne vous en faites pas, vous pouvez refaire une recherche. </p>`);
   }
 }
